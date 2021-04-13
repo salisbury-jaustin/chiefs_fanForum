@@ -1,0 +1,173 @@
+/* import generic mixins */
+/* import page sections style mixins */
+/* output */
+* {
+  box-sizing: border-box; }
+
+html {
+  width: 100%;
+  margin: 0px; }
+
+#header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E31837;
+  padding: 0% 3% 0% 3%; }
+  #header h1 {
+    color: #FFB81C; }
+
+#profile-menu {
+  display: none;
+  width: 3rem;
+  height: 2rem;
+  background-color: #ffffff;
+  color: #E31837;
+  border: solid #FFB81C;
+  border-width: 0.5rem;
+  text-align: center; }
+  #profile-menu h2 {
+    margin-top: auto;
+    margin-bottom: auto; }
+
+#nav-main {
+  background-color: #FFB81C;
+  margin: 1% 0% 0% 0%;
+  padding: 0%; }
+  #nav-main ul {
+    list-style: none;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch; }
+    #nav-main ul li {
+      flex-grow: 1;
+      margin: 0%;
+      padding: 0%; }
+      #nav-main ul li a {
+        width: 100%;
+        height: 100%;
+        background-color: #E31837;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+
+#user-login, #register {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.login-register-container {
+  background-color: #ffffff;
+  border: solid #E31837;
+  border-width: 0.2rem; }
+  .login-register-container form {
+    display: flex;
+    flex-flow: column nowrap; }
+  .login-register-container button {
+    display: block;
+    margin: 0.2rem 0.2rem 0.2rem auto; }
+  .login-register-container a {
+    display: block;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    margin: auto;
+    color: #E31837; }
+
+#header-user {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px; }
+  #header-user div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #E31837; }
+    #header-user div h1 {
+      color: #FFB81C; }
+
+#nav-user {
+  background-color: #FFB81C;
+  margin: 0% 0% 0% 0%;
+  padding: 0%;
+  position: relative; }
+  #nav-user ul {
+    list-style: none;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    position: absolute;
+    bottom: 0; }
+    #nav-user ul li {
+      flex-grow: 1;
+      margin: 0%;
+      padding: 0%; }
+      #nav-user ul li a {
+        width: 100%;
+        height: 100%;
+        background-color: #E31837;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      #nav-user ul li a[data-active="1"] {
+        background-color: #FFB81C; }
+
+#user-huddle {
+  display: flex; }
+
+#user-stats {
+  display: none; }
+
+#user-about {
+  display: none; }
+
+@media screen and (max-width: 767.9px) {
+  body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0px; }
+
+  #header {
+    width: 100%;
+    height: 20%; }
+
+  #nav-main {
+    width: 100%;
+    height: 3rem; }
+    #nav-main ul {
+      height: 80%; }
+
+  .login-register-container {
+    width: 90%;
+    height: 40%; }
+
+  #header-user {
+    height: 4rem; }
+
+  #nav-user {
+    height: 3rem; }
+    #nav-user ul {
+      height: 80%; } }
+
+/*# sourceMappingURL=style.css.map */

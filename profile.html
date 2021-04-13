@@ -7,33 +7,38 @@
     <title>Chief Talk</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body onload="Nav.main_nav_onload()">
-    <header id="header">
-        <h1>Chief Talk</h1>
-        <div id="utility">
-            <button id="login-register-btn" onclick="Events.show('user-login', 'flex')">Login/Register</button>
-            <div id="profile-menu">
-                <a href="./profile.html" id="menu-username"></a>
-            </div>
+<body onload="Profile.set_profile_page()">
+    <header id="header-user">
+        <div>
+            <h1 id="header-username"></h1>
+            <button id="exit-profile" onclick="Events.go_back()">X</button>
         </div>
     </header>
-    <nav id="nav-main">
+    <nav id="nav-user">
         <ul>
             <li>
-                <a href="./index.html">Home</a>
+                <a id="anchor-huddle" data-active="1" onclick="Profile.nav(this.id, 'user-huddle')">Huddle</a>
             </li>
             <li>
-                <a href="./redzone.html">Redzone</a>
+                <a id="anchor-stats" data-active="0" onclick="Profile.nav(this.id, 'user-stats')">Stats</a>
             </li>
             <li>
-                <a href="./subforums.html">Subs</a>
-            </li>
-            <li>
-                <a>Club</a>
+                <a id="anchor-about" data-active="0" onclick="Profile.nav(this.id, 'user-about')">About</a>
             </li>
         </ul>
     </nav>
-    
+<main id="profile">
+    <div id="user-huddle" >
+        <h2>Social Content</h2>
+    </div>
+    <div id="user-stats">
+        <h2>User Statistics</h2>
+    </div>
+    <div id="user-about">
+        <h2>User About Information</h2>
+    </div>
+   <button id="logout" onclick="Auth.logout()">Logout</button> 
+</main>
 </body>
 <footer>
 
