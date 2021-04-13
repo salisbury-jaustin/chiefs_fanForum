@@ -33,7 +33,7 @@ const functions = require('firebase-functions');
 */
 
 var auth = firebase.auth();
-auth.useEmulator("http://localhost:9099");
+//auth.useEmulator("http://localhost:9099");
 
 var session = localStorage.getItem('chiefs-talk-session');
 if (session != null) {
@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged((user) => { // working on listening for auth 
 */
 
 var db = firebase.firestore();
-db.useEmulator("localhost", 8080);
+//db.useEmulator("localhost", 8080);
 var Auth = {
     get_values: function(form_id) { 
         let form_element = document.getElementById(form_id);
