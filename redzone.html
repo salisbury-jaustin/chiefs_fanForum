@@ -7,7 +7,7 @@
     <title>Chief Talk</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body onload="Nav.main_nav_onload(), Events.user_state()">
+<body onload="Nav.main_nav_onload(), Events.user_state(), Thread.get_threads('redzone', 'redzone-threads')">
     <header id="header">
         <h1>Chief Talk</h1>
         <div id="utility">
@@ -58,13 +58,14 @@
             </li>
         </ul>
     </nav>
-    
-<main>
-    <div id="welcome">
-        <h2>Welcome to Chief Talk!</h2>
-        <p>Chief Talk is an online community where fans of the Kansas City Chiefs can discuss all things Chiefs. <a id="call-to-action" onclick="Events.show('user-login', 'flex')">Sign up</a> today to get started!</a></p>
-    </div>
-</main>
+    <main>
+        <div class="thread-container">
+            <div id="redzone-threads" class="threads">
+
+            </div>
+        </div>
+        <button id="post-redzone" class="post-thread" data-thread='redzone' onclick="Post.display_new_post(this.id, this.dataset.thread)">Post</button>
+    </main>
 </body>
 <footer>
 
