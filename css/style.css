@@ -1,0 +1,589 @@
+/* import generic mixins */
+/* import page sections style mixins */
+/* output */
+* {
+  box-sizing: border-box; }
+
+html {
+  width: 100%;
+  margin: 0px; }
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0px; }
+
+#header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E31837;
+  padding: 0% 3% 0% 3%; }
+  #header h1 {
+    color: #FFB81C; }
+
+#profile-menu {
+  display: none;
+  width: fit-content;
+  height: 2rem;
+  background-color: #ffffff;
+  color: #E31837;
+  border: solid #FFB81C;
+  border-width: 0.5rem;
+  text-align: center; }
+  #profile-menu h2 {
+    margin-top: auto;
+    margin-bottom: auto; }
+
+#nav-main {
+  background-color: #FFB81C;
+  margin: 1% 0% 0% 0%;
+  padding: 0%; }
+  #nav-main #ul-main {
+    list-style: none;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch; }
+    #nav-main #ul-main li {
+      flex-grow: 1;
+      margin: 0%;
+      padding: 0%; }
+      #nav-main #ul-main li a {
+        width: 100%;
+        height: 100%;
+        background-color: #E31837;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+
+#dropdown-container {
+  position: relative; }
+  #dropdown-container #club-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #FFB81C; }
+    #dropdown-container #club-dropdown ul {
+      list-style: none;
+      width: 100%;
+      margin: 0%;
+      padding: 0%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: stretch; }
+      #dropdown-container #club-dropdown ul li {
+        flex-grow: 1;
+        margin: 0%;
+        padding: 0%; }
+        #dropdown-container #club-dropdown ul li a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+      #dropdown-container #club-dropdown ul li:not(:last-child) a {
+        background-color: #E31837; }
+      #dropdown-container #club-dropdown ul li:last-child a {
+        background-color: #FFB81C; }
+
+#user-login, #register {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.login-register-container {
+  background-color: #ffffff;
+  border: solid #E31837;
+  border-width: 0.2rem; }
+  .login-register-container form {
+    display: flex;
+    flex-flow: column nowrap; }
+  .login-register-container button {
+    display: block;
+    margin: 0.2rem 0.2rem 0.2rem auto; }
+  .login-register-container a {
+    display: block;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    margin: auto;
+    color: #E31837; }
+
+.error {
+  display: none; }
+
+#header-user div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #E31837; }
+  #header-user div h1 {
+    color: #FFB81C; }
+
+#nav-user {
+  background-color: #FFB81C;
+  padding: 0%;
+  position: relative; }
+  #nav-user ul {
+    list-style: none;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    position: absolute;
+    bottom: 0; }
+    #nav-user ul li {
+      flex-grow: 1;
+      margin: 0%;
+      padding: 0%; }
+      #nav-user ul li a {
+        width: 100%;
+        height: 100%;
+        background-color: #E31837;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      #nav-user ul li a[data-active="1"] {
+        background-color: #FFB81C; }
+
+#user-huddle {
+  display: flex; }
+
+#user-stats {
+  display: none; }
+
+#user-about {
+  display: none; }
+
+.thread-container {
+  overflow: scroll; }
+  .thread-container .threads {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch; }
+    .thread-container .threads .thread:nth-child(even) {
+      background-color: rgba(219, 219, 219, 0.84); }
+
+.content_container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2); }
+  .content_container .content {
+    background-color: #ffffff;
+    border: solid #E31837;
+    border-width: 0.2rem; }
+
+.post_container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2); }
+  .post_container .post {
+    background-color: #ffffff;
+    border: solid #E31837;
+    border-width: 0.2rem; }
+    .post_container .post .post_form {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center; }
+      .post_container .post .post_form .exit_post {
+        margin-left: auto;
+        margin-right: 0px; }
+
+#nav-subforums ul {
+  list-style: none;
+  padding: 0%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch; }
+  #nav-subforums ul li {
+    flex-grow: 1;
+    margin: 0%;
+    padding: 0%; }
+    #nav-subforums ul li a {
+      width: 100%;
+      height: 100%;
+      background-color: #E31837;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+  #nav-subforums ul li:last-child a {
+    border-left: solid #FFB81C thin; }
+
+#post-bookie {
+  display: none; }
+
+#post-draft {
+  display: none; }
+
+#welcome {
+  border: solid #E31837; }
+
+@media screen and (max-width: 767.9px) {
+  #header {
+    width: 100%;
+    height: 20%; }
+
+  #nav-main {
+    width: 100%;
+    height: 3rem; }
+    #nav-main #ul-main {
+      height: 80%; }
+
+  #club-dropdown {
+    width: 100vw; }
+    #club-dropdown ul {
+      height: 60vh; }
+
+  .login-register-container {
+    width: 90%;
+    min-height: 40%;
+    max-height: fit-content; }
+
+  #header-user {
+    height: 4rem;
+    margin: 0;
+    padding: 0; }
+
+  #nav-user {
+    height: 3rem;
+    padding: 0; }
+    #nav-user ul {
+      height: 80%; }
+
+  #profile {
+    width: 100%; }
+
+  .thread-container {
+    width: 100%; }
+
+  .post-thread {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3rem; }
+
+  .content {
+    width: 100%;
+    height: 100%; }
+
+  .post {
+    width: 100%;
+    height: 100%; }
+
+  .post_form {
+    height: 100%; }
+
+  #post_btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem; }
+
+  .post_body {
+    width: 80%;
+    height: 60%; }
+
+  #nav-subforums ul {
+    width: 100%;
+    margin: 0%; }
+
+  #welcome {
+    margin-top: 1rem;
+    border-width: 0.2rem; } }
+@media screen and (min-width: 768px) and (max-width: 991.9px) {
+  #header {
+    width: 100%;
+    height: 25%; }
+
+  #nav-main {
+    width: 100%;
+    height: 3rem; }
+    #nav-main #ul-main {
+      height: 80%; }
+
+  #club-dropdown {
+    width: 50vw; }
+    #club-dropdown ul {
+      height: 60vh; }
+
+  .login-register-container {
+    width: 60%;
+    min-height: 50%;
+    max-height: fit-content; }
+
+  #header-user {
+    height: 4rem;
+    margin: 0;
+    padding: 0; }
+
+  #nav-user {
+    height: 3rem;
+    padding: 0; }
+    #nav-user ul {
+      height: 80%; }
+
+  #profile {
+    width: 100%; }
+
+  .thread-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .post-thread {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3rem; }
+
+  .content {
+    width: 80%;
+    height: 60%; }
+
+  .post {
+    width: 100%;
+    height: 100%; }
+
+  .post_form {
+    height: 100%; }
+
+  #post_btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem; }
+
+  .post_body {
+    width: 80%;
+    height: 60%; }
+
+  #nav-subforums ul {
+    width: 100%;
+    height: 1.5rem;
+    margin: 0%; }
+
+  #welcome {
+    border-width: 0.4rem;
+    width: 70%;
+    margin: 2rem auto 0 auto; } }
+@media screen and (min-width: 992px) and (max-width: 1199.9px) {
+  #header {
+    width: 80%;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  #nav-main {
+    width: 80%;
+    height: 3rem;
+    margin-left: auto;
+    margin-right: auto; }
+    #nav-main #ul-main {
+      height: 80%; }
+
+  #club-dropdown {
+    width: 30vw; }
+    #club-dropdown ul {
+      height: 40vh; }
+
+  .login-register-container {
+    width: 60%;
+    min-height: 50%;
+    max-height: fit-content; }
+
+  #header-user {
+    height: 4rem;
+    width: 80%;
+    margin: 0 auto; }
+
+  #nav-user {
+    height: 3rem;
+    width: 80%;
+    margin: 0 auto; }
+    #nav-user ul {
+      height: 80%; }
+
+  #profile {
+    width: 80%;
+    margin: 0 auto; }
+
+  .thread-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .post-thread {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3rem; }
+
+  .content {
+    width: 80%;
+    height: 80%; }
+
+  .post {
+    width: 100%;
+    height: 100%; }
+
+  .post_form {
+    height: 100%; }
+
+  #post_btn {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3rem; }
+
+  .post_body {
+    width: 80%;
+    height: 60%; }
+
+  #nav-subforums ul {
+    width: 80%;
+    height: 2rem;
+    margin: 0 auto; }
+
+  #welcome {
+    border-width: 0.4rem;
+    width: 50%;
+    margin: 2rem auto 0 auto; } }
+@media screen and (min-width: 1200px) {
+  #header {
+    width: 70%;
+    height: 40%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  #nav-main {
+    width: 70%;
+    height: 3rem;
+    margin-left: auto;
+    margin-right: auto; }
+    #nav-main #ul-main {
+      height: 80%; }
+
+  #club-dropdown {
+    width: 18vw; }
+    #club-dropdown ul {
+      height: 40vh; }
+
+  .login-register-container {
+    width: 40%;
+    min-height: 40%;
+    max-height: fit-content; }
+
+  #header-user {
+    height: 4rem;
+    width: 70%;
+    margin: 0 auto; }
+
+  #nav-user {
+    height: 3rem;
+    width: 70%;
+    margin: 0 auto; }
+    #nav-user ul {
+      height: 80%; }
+
+  #profile {
+    width: 70%;
+    margin: 0 auto; }
+
+  .thread-container {
+    width: 70%;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .post-thread {
+    position: fixed;
+    bottom: 0;
+    right: 15%;
+    width: 10%;
+    height: 3rem; }
+
+  .content {
+    width: 70%;
+    height: 80%; }
+
+  .post {
+    width: 100%;
+    height: 100%; }
+
+  .post_form {
+    height: 100%; }
+
+  #post_btn {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3rem; }
+
+  .post_body {
+    width: 70%;
+    height: 60%; }
+
+  #nav-subforums ul {
+    height: 2rem;
+    width: 70%;
+    margin: 0 auto; }
+
+  #welcome {
+    border-width: 0.4rem;
+    width: 40%;
+    margin: 2rem auto 0 auto; } }
+
+/*# sourceMappingURL=style.css.map */
