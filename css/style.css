@@ -1,570 +1,65 @@
-/* import generic mixins */
-/* import page sections style mixins */
-/* output */
-* {
-  box-sizing: border-box; }
-
-html {
-  width: 100%;
-  margin: 0px; }
-
-body {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0px; }
-
-#header {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #E31837;
-  padding: 0% 3% 0% 3%; }
-  #header h1 {
-    color: #FFB81C; }
-
-#profile-menu {
-  display: none;
-  width: fit-content;
-  height: 2rem;
-  background-color: #ffffff;
-  color: #E31837;
-  border: solid #FFB81C;
-  border-width: 0.5rem;
-  text-align: center; }
-  #profile-menu h2 {
-    margin-top: auto;
-    margin-bottom: auto; }
-
-#nav-main {
-  background-color: #FFB81C;
-  margin: 1% 0% 0% 0%;
-  padding: 0%; }
-  #nav-main #ul-main {
-    list-style: none;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: stretch; }
-    #nav-main #ul-main li {
-      flex-grow: 1;
-      margin: 0%;
-      padding: 0%; }
-      #nav-main #ul-main li a {
-        width: 100%;
-        height: 100%;
-        background-color: #E31837;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-
-#dropdown-container {
-  position: relative; }
-  #dropdown-container #club-dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #FFB81C; }
-    #dropdown-container #club-dropdown ul {
-      list-style: none;
-      width: 100%;
-      margin: 0%;
-      padding: 0%;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-between;
-      align-items: stretch; }
-      #dropdown-container #club-dropdown ul li {
-        flex-grow: 1;
-        margin: 0%;
-        padding: 0%; }
-        #dropdown-container #club-dropdown ul li a {
-          width: 100%;
-          height: 100%;
-          text-decoration: none;
-          display: flex;
-          justify-content: center;
-          align-items: center; }
-      #dropdown-container #club-dropdown ul li:not(:last-child) a {
-        background-color: #E31837; }
-      #dropdown-container #club-dropdown ul li:last-child a {
-        background-color: #FFB81C; }
-
-#user-login, #register {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  z-index: 1000;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.2); }
-
-.login-register-container {
-  background-color: #ffffff;
-  border: solid #E31837;
-  border-width: 0.2rem; }
-  .login-register-container form {
-    display: flex;
-    flex-flow: column nowrap; }
-  .login-register-container button {
-    display: block;
-    margin: 0.2rem 0.2rem 0.2rem auto; }
-  .login-register-container a {
-    display: block;
-    width: -webkit-min-content;
-    width: -moz-min-content;
-    width: min-content;
-    margin: auto;
-    color: #E31837; }
-
-.error {
-  display: none; }
-
-#header-user div {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: #E31837; }
-  #header-user div h1 {
-    color: #FFB81C; }
-
-#nav-user {
-  background-color: #FFB81C;
-  padding: 0%;
-  position: relative; }
-  #nav-user ul {
-    list-style: none;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: stretch;
-    position: absolute;
-    bottom: 0; }
-    #nav-user ul li {
-      flex-grow: 1;
-      margin: 0%;
-      padding: 0%; }
-      #nav-user ul li a {
-        width: 100%;
-        height: 100%;
-        background-color: #E31837;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-      #nav-user ul li a[data-active="1"] {
-        background-color: #FFB81C; }
-
-#user-huddle {
-  display: flex; }
-
-#user-stats {
-  display: none; }
-
-#user-about {
-  display: none; }
-
-.thread-container {
-  overflow: scroll; }
-  .thread-container .threads {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: stretch; }
-    .thread-container .threads .thread:nth-child(even) {
-      background-color: rgba(219, 219, 219, 0.84); }
-
-.content_container {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  z-index: 1000;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.2); }
-  .content_container .content {
-    background-color: #ffffff;
-    border: solid #E31837;
-    border-width: 0.2rem; }
-
-.post_container {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  z-index: 1000;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.2); }
-  .post_container .post {
-    background-color: #ffffff;
-    border: solid #E31837;
-    border-width: 0.2rem; }
-    .post_container .post .post_form {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: flex-start;
-      align-items: center; }
-      .post_container .post .post_form .exit_post {
-        margin-left: auto;
-        margin-right: 0px; }
-
-#nav-subforums ul {
-  list-style: none;
-  padding: 0%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: stretch; }
-  #nav-subforums ul li {
-    flex-grow: 1;
-    margin: 0%;
-    padding: 0%; }
-    #nav-subforums ul li a {
-      width: 100%;
-      height: 100%;
-      background-color: #E31837;
-      text-decoration: none;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-  #nav-subforums ul li:last-child a {
-    border-left: solid #FFB81C thin; }
-
-#post-bookie {
-  display: none; }
-
-#post-draft {
-  display: none; }
-
-#welcome {
-  border: solid #E31837; }
-
-@media screen and (max-width: 767.9px) {
-  #header {
-    width: 100%;
-    height: 20%; }
-
-  #nav-main {
-    width: 100%;
-    height: 3rem; }
-    #nav-main #ul-main {
-      height: 80%; }
-
-  #club-dropdown {
-    width: 100vw; }
-    #club-dropdown ul {
-      height: 60vh; }
-
-  .login-register-container {
-    width: 90%;
-    min-height: 40%;
-    max-height: fit-content; }
-
-  #header-user {
-    height: 4rem;
-    margin: 0;
-    padding: 0; }
-
-  #nav-user {
-    height: 3rem;
-    padding: 0; }
-    #nav-user ul {
-      height: 80%; }
-
-  #profile {
-    width: 100%; }
-
-  .thread-container {
-    width: 100%; }
-
-  .post-thread {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 3rem; }
-
-  .content {
-    width: 100%;
-    height: 100%; }
-
-  .post {
-    width: 100%;
-    height: 100%; }
-
-  .post_form {
-    height: 100%; }
-
-  #post_btn {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3rem; }
-
-  .post_body {
-    width: 80%;
-    height: 60%; }
-
-  #nav-subforums ul {
-    width: 100%;
-    margin: 0%; }
-
-  #welcome {
-    margin-top: 1rem;
-    border-width: 0.2rem; } }
-@media screen and (min-width: 768px) and (max-width: 991.9px) {
-  #header {
-    width: 100%;
-    height: 25%; }
-
-  #nav-main {
-    width: 100%;
-    height: 3rem; }
-    #nav-main #ul-main {
-      height: 80%; }
-
-  #club-dropdown {
-    width: 50vw; }
-    #club-dropdown ul {
-      height: 60vh; }
-
-  .login-register-container {
-    width: 60%;
-    min-height: 50%;
-    max-height: fit-content; }
-
-  #header-user {
-    height: 4rem;
-    margin: 0;
-    padding: 0; }
-
-  #nav-user {
-    height: 3rem;
-    padding: 0; }
-    #nav-user ul {
-      height: 80%; }
-
-  #profile {
-    width: 100%; }
-
-  .thread-container {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto; }
-
-  .post-thread {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 3rem; }
-
-  .content {
-    width: 80%;
-    height: 60%; }
-
-  .post {
-    width: 100%;
-    height: 100%; }
-
-  .post_form {
-    height: 100%; }
-
-  #post_btn {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3rem; }
-
-  .post_body {
-    width: 80%;
-    height: 60%; }
-
-  #nav-subforums ul {
-    width: 100%;
-    height: 1.5rem;
-    margin: 0%; }
-
-  #welcome {
-    border-width: 0.4rem;
-    width: 70%;
-    margin: 2rem auto 0 auto; } }
-@media screen and (min-width: 992px) and (max-width: 1199.9px) {
-  #header {
-    width: 80%;
-    height: 30%;
-    margin-left: auto;
-    margin-right: auto; }
-
-  #nav-main {
-    width: 80%;
-    height: 3rem;
-    margin-left: auto;
-    margin-right: auto; }
-    #nav-main #ul-main {
-      height: 80%; }
-
-  #club-dropdown {
-    width: 30vw; }
-    #club-dropdown ul {
-      height: 40vh; }
-
-  .login-register-container {
-    width: 60%;
-    min-height: 50%;
-    max-height: fit-content; }
-
-  #header-user {
-    height: 4rem;
-    width: 80%;
-    margin: 0 auto; }
-
-  #nav-user {
-    height: 3rem;
-    width: 80%;
-    margin: 0 auto; }
-    #nav-user ul {
-      height: 80%; }
-
-  #profile {
-    width: 80%;
-    margin: 0 auto; }
-
-  .thread-container {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto; }
-
-  .post-thread {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 3rem; }
-
-  .content {
-    width: 80%;
-    height: 80%; }
-
-  .post {
-    width: 100%;
-    height: 100%; }
-
-  .post_form {
-    height: 100%; }
-
-  #post_btn {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 3rem; }
-
-  .post_body {
-    width: 80%;
-    height: 60%; }
-
-  #nav-subforums ul {
-    width: 80%;
-    height: 2rem;
-    margin: 0 auto; }
-
-  #welcome {
-    border-width: 0.4rem;
-    width: 50%;
-    margin: 2rem auto 0 auto; } }
-@media screen and (min-width: 1200px) {
-  #header {
-    width: 70%;
-    height: 40%;
-    margin-left: auto;
-    margin-right: auto; }
-
-  #nav-main {
-    width: 70%;
-    height: 3rem;
-    margin-left: auto;
-    margin-right: auto; }
-    #nav-main #ul-main {
-      height: 80%; }
-
-  #club-dropdown {
-    width: 18vw; }
-    #club-dropdown ul {
-      height: 40vh; }
-
-  .login-register-container {
-    width: 40%;
-    min-height: 40%;
-    max-height: fit-content; }
-
-  #header-user {
-    height: 4rem;
-    width: 70%;
-    margin: 0 auto; }
-
-  #nav-user {
-    height: 3rem;
-    width: 70%;
-    margin: 0 auto; }
-    #nav-user ul {
-      height: 80%; }
-
-  #profile {
-    width: 70%;
-    margin: 0 auto; }
-
-  .thread-container {
-    width: 70%;
-    overflow: auto;
-    margin-left: auto;
-    margin-right: auto; }
-
-  .post-thread {
-    position: fixed;
-    bottom: 0;
-    right: 15%;
-    width: 10%;
-    height: 3rem; }
-
-  .content {
-    width: 70%;
-    height: 80%; }
-
-  #nav-subforums ul {
-    height: 2rem;
-    width: 70%;
-    margin: 0 auto; }
-
-  #welcome {
-    border-width: 0.4rem;
-    width: 40%;
-    margin: 2rem auto 0 auto; } }
-
-/*# sourceMappingURL=style.css.map */
+/*
+Error: Invalid CSS after "    }": expected selector or at-rule, was "}"
+        on line 118 of css/scss/sections/post.scss
+        from line 14 of ./css/scss/style.scss
+
+113:     }
+114:     @else if $size == 'xLarge' {
+115:         
+116:     }
+117:     }
+118: }
+
+Backtrace:
+css/scss/sections/post.scss:118
+./css/scss/style.scss:14
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:42:in `parse'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:321:in `to_tree'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:88:in `block in with_import'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:88:in `with_import'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+/usr/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+/usr/lib/ruby/gems/3.0.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"    }\": expected selector or at-rule, was \"}\"\A         on line 118 of css/scss/sections/post.scss\A         from line 14 of ./css/scss/style.scss\A \A 113:     }\A 114:     @else if $size == 'xLarge' {\A 115:         \A 116:     }\A 117:     }\A 118: }"; }
