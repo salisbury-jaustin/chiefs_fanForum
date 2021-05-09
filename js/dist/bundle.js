@@ -111,7 +111,7 @@ var Auth = {
                     //Events.hide('register'); 
                     //Events.hide("login-register-btn");
                     //Events.show('profile-menu', 'block');
-                    window.location.replace("http://127.0.0.1:5500/profile.html");
+                    window.location.replace("https://salisbury-jaustin.github.io/chiefs_fanForum/profile.html");
                     })
                 .catch((error) => {
                     var errorCode = error.code;
@@ -141,7 +141,7 @@ var Auth = {
     logout: function() {
         firebase.auth().signOut().then(() => {
                 localStorage.removeItem('chiefs-talk-session');
-                window.location.replace("http://127.0.0.1:5500/index.html");
+                window.location.replace("https://salisbury-jaustin.github.io/chiefs_fanForum/index.html");
                 Auth.user_state('logged-out'); 
             }).catch((error) => {
                 // An error happened.
