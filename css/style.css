@@ -567,7 +567,7 @@ body {
   #post_btn {
     position: fixed;
     bottom: 0;
-    right: 1;
+    right: 15%;
     width: 20%;
     height: 3rem; }
 

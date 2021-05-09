@@ -363,6 +363,7 @@ var Post = {
         let post_container= document.createElement("div");
         let post_form = document.createElement("div");
         let exit = document.createElement("button");
+        let title_label = document.createElement("label");
         let title = document.createElement("input");
         let body = document.createElement("textarea");
         let post_btn = document.createElement("button");
@@ -374,6 +375,8 @@ var Post = {
         exit.setAttribute("onclick", "Events.hide(this.dataset.parent_id), Events.remove_element(this.dataset.parent_id)");
         exit.innerHTML = "X";
         exit.className = "exit_post";
+        title_label.setAttribute("for", "post_title");
+        title_label.innerHTML = "Title: ";
         title.type = "text";
         title.id = "post_title";
         body.className = "post_body";
@@ -383,6 +386,7 @@ var Post = {
         post_btn.setAttribute("onclick", "Post.post('" + `${collection}` + "'" + "), Events.hide(this.dataset.parent_id), Events.remove_element(this.dataset.parent_id)");
         post_btn.innerHTML = 'Post';
         post_form.appendChild(exit);
+        post_form.appendChild(title_label);
         post_form.appendChild(title);
         post_form.appendChild(body);
         post_container.appendChild(post_form);
