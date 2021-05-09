@@ -141,7 +141,7 @@ var Auth = {
     logout: function() {
         firebase.auth().signOut().then(() => {
                 localStorage.removeItem('chiefs-talk-session');
-                window.location.replace("https://salisbury-jaustin.github.io/chiefs_fanForum/index.html");
+                window.location.replace("https://salisbury-jaustin.github.io/chiefs_fanForum/");
                 Auth.user_state('logged-out'); 
             }).catch((error) => {
                 // An error happened.
